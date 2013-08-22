@@ -44,3 +44,11 @@ The master and gh-pages branch do not share the same ancestry. Please treat them
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+
+## Install jekyll
+
+  sudo apt-get install ruby1.9.1
+  sudo apt-get install rubygems
+  sudo gem install jekyll
+
+  jekyll serve
