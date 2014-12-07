@@ -28,7 +28,7 @@ _print_fatal() {
 result=`which ruby`
 if [ "x$result" = 'x' ]; then
     _trace "ruby is not installed, now install ruby."
-    brew install ruby
+    sudo brew install ruby
 
     if [ $? -eq 0 ]; then
         _trace "install ruby successed."
@@ -57,3 +57,4 @@ else
 fi
 
 bundle exec jekyll serve
+
