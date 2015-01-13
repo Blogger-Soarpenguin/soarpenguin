@@ -26,6 +26,19 @@
 /proc/sys/net/ipv4/tcp_sack - tcp selective acknowledgements.
 /proc/sys/net/ipv4/tcp_window_scaling - support for large TCP Windows (RFC 1323). Needs to be set to 1 if the Max TCP Window is over 65535.
 
+/proc/sys/net/ipv4/tcp_timestamps
+/proc/sys/net/ipv4/tcp_tw_recycle
+/proc/sys/net/ipv4/tcp_tw_reuse
+/proc/sys/net/ipv4/tcp_max_tw_buckets
+
+/proc/sys/net/ipv4/tcp_fin_timeout
+/proc/sys/net/ipv4/ip_local_port_range
+/proc/sys/net/ipv4/tcp_orphan_retries
+/proc/sys/net/ipv4/tcp_rfc1337
+/proc/sys/net/ipv4/tcp_max_orphans
+/proc/sys/net/ipv4/tcp_max_syn_backlog
+/proc/sys/net/ipv4/tcp_mem
+
 Other TCP Parameters to consider
 
 TCP_FIN_TIMEOUT
