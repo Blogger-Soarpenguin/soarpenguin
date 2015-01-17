@@ -19,6 +19,11 @@
     (谨慎使用如上参数)  More [ip-sysctl](https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt) 
 
 ****
+/proc/sys/net/ipv4/somaxconn - Limit of socket listen() backlog, known in userspace as SOMAXCONN.  
+/proc/sys/net/ipv4/tcp_max_syn_backlog  
+/proc/sys/net/ipv4/ip_local_port_range  
+/proc/sys/net/ipv4/tcp_mem  
+
 /proc/sys/net/core/rmem_max - Maximum TCP Receive Window  
 /proc/sys/net/core/wmem_max - Maximum TCP Send Window  
 /proc/sys/net/ipv4/tcp_rmem - memory reserved for TCP receive buffers  
@@ -32,19 +37,28 @@
 /proc/sys/net/ipv4/tcp_tw_reuse  
 /proc/sys/net/ipv4/tcp_max_tw_buckets  
 
-/proc/sys/net/ipv4/tcp_fin_timeout  
-/proc/sys/net/ipv4/ip_local_port_range  
-/proc/sys/net/ipv4/tcp_orphan_retries  
-/proc/sys/net/ipv4/tcp_rfc1337  
 /proc/sys/net/ipv4/tcp_max_orphans  
-/proc/sys/net/ipv4/tcp_max_syn_backlog  
-/proc/sys/net/ipv4/tcp_mem  
+/proc/sys/net/ipv4/tcp_orphan_retries  
+/proc/sys/net/ipv4/tcp_fin_timeout  
+/proc/sys/net/ipv4/tcp_rfc1337  
+
 
 Other TCP Parameters to consider
 
+/proc/sys/net/ipv4/tcp_fastopen  
+	Enable TCP Fast Open feature (draft-ietf-tcpm-fastopen) to send data
+	in the opening SYN packet. To use this feature, the client application
+	must use sendmsg() or sendto() with MSG_FASTOPEN flag rather than
+	connect() to perform a TCP handshake automatically.  
+
+/proc/sys/net/ipv4/tcp_rfc1337  
+	If set, the TCP stack behaves conforming to RFC1337. If unset,
+	we are not conforming to RFC, but prevent TCP TIME_WAIT
+	assassination.  
+	Default: 0  
+  
 TCP_FIN_TIMEOUT  
 This setting determines the time that must elapse before TCP/IP can release a closed connection and reuse its resources. During this TIME_WAIT state, reopening the connection to the client costs less than establishing a new connection. By reducing the value of this entry, TCP/IP can release closed connections faster, making more resources available for new connections. Addjust this in the presense of many connections sitting in the TIME_WAIT state:
-
 
 echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout  
 (default: 60 seconds, recommended 15-30 seconds)  
