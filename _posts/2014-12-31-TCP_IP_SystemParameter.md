@@ -94,3 +94,20 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
 (boolean, default: 0)
 
 Note: The tcp_tw_reuse setting is particularly useful in environments where numerous short connections are open and left in TIME_WAIT state, such as web servers. Reusing the sockets can be very effective in reducing server load.
+
+| 可调节的参数  |  默认值 | 选项说明 |   
+| /proc/sys/net/core/rmem_default |	"110592" |	定义默认的接收窗口大小；对于更大的 BDP 来说，这个大小也应该更大。|  
+| /proc/sys/net/core/rmem_max |	 "110592" |	定义接收窗口的最大大小；对于更大的 BDP 来说，这个大小也应该更大。|  
+| /proc/sys/net/core/wmem_default | "110592" |	定义默认的发送窗口大小；对于更大的 BDP 来说，这个大小也应该更大。|  
+| /proc/sys/net/core/wmem_max | "110592" | 定义发送窗口的最大大小；对于更大的 BDP 来说，这个大小也应该更大。|  
+| /proc/sys/net/ipv4/tcp_window_scaling	| "1" |	启用RFC 1323定义的 window scaling；要支持超过64KB的窗口,必须启用该值。|  
+| /proc/sys/net/ipv4/tcp_sack | "1" | 启用有选择的应答（Selective Acknowledgment），这可以通过有选择地应答乱序接收到的报文来提高性能（这样可以让发送者只发送丢失的报文段）；（对于广域网通信来说）这个选项应该启用，但是这会增加对 CPU 的占用。|  
+| /proc/sys/net/ipv4/tcp_fack | "1" | 启用转发应答（Forward Acknowledgment），这可以进行有选择应答（SACK）从而减少拥塞情况的发生；这个选项也应该启用。|  
+| /proc/sys/net/ipv4/tcp_timestamps | "1" | 以一种比重发超时更精确的方法（请参阅 RFC 1323）来启用对 RTT 的计算；为了实现更好的性能应该启用这个选项。|  
+| /proc/sys/net/ipv4/tcp_mem | "24576 32768 49152" | 确定 TCP 栈应该如何反映内存使用；每个值的单位都是内存页（通常是 4KB）。第一个值是内存使用的下限。第二个值是内存压力模式开始对缓冲区使用应用压力的上限。第三个值是内存上限。在这个层次上可以将报文丢弃，从而减少对内存的使用。对于较大的 BDP 可以增大这些值（但是要记住，其单位是内存页，而不是字节）。 |  
+| /proc/sys/net/ipv4/tcp_wmem | "4096 16384 131072" | 为自动调优定义每个socket 使用的内存。第一个值是为 socket 的发送缓冲区分配的最少字节数。第二个值是默认值（该值会被 wmem_default 覆盖），缓冲区在系统负载不重的情况下可以增长到这个值。第三个值是发送缓冲区空间的最大字节数（该值会被 wmem_max 覆盖）。|  
+| /proc/sys/net/ipv4/tcp_rmem | "4096 87380 174760" | 与 tcp_wmem 类似，不过它表示的是为自动调优所使用的接收缓冲区的值。|  
+| /proc/sys/net/ipv4/tcp_low_latency | "0" | 允许TCP/IP 栈适应在高吞吐量情况下低延时的情况；这个选项应该禁用。|  
+| /proc/sys/net/ipv4/tcp_westwood | "0" | 启用发送者端的拥塞控制算法，它可以维护对吞吐量的评估，并试图对带宽的整体利用情况进行优化；对于 WAN 通信来说应该启用这个选项。|  
+| /proc/sys/net/ipv4/tcp_bic | "1" | 为快速长距离网络启用 Binary Increase Congestion；这样可以更好地利用以 GB 速度进行操作的链接；对于 WAN 通信应该启用这个选项。|  
+
