@@ -35,11 +35,11 @@
 /proc/sys/net/ipv4/tcp_timestamps  
 /proc/sys/net/ipv4/tcp_tw_recycle  
 /proc/sys/net/ipv4/tcp_tw_reuse  
-/proc/sys/net/ipv4/tcp_max_tw_buckets  
+/proc/sys/net/ipv4/tcp_max_tw_buckets  控制TIME_WAIT状态的最大数量  
 
-/proc/sys/net/ipv4/tcp_max_orphans  
-/proc/sys/net/ipv4/tcp_orphan_retries  
-/proc/sys/net/ipv4/tcp_fin_timeout  
+/proc/sys/net/ipv4/tcp_max_orphans     控制FIN_WAIT1状态的最大数量  
+/proc/sys/net/ipv4/tcp_orphan_retries  控制 *主动关闭端* 发送FIN后等待接受ACK的重试次数，默认0(实际是8),影响FIN_WAIT1超时时间  
+/proc/sys/net/ipv4/tcp_fin_timeout     控制FIN_WAIT2状态的超时时间  
 /proc/sys/net/ipv4/tcp_rfc1337  
 
 
