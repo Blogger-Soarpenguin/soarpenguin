@@ -24,9 +24,8 @@ _print_fatal() {
 
 ########## main route ############
 
-## check ruby env
-result=`which ruby`
-if [ "x$result" = 'x' ]; then
+# Verify ruby works
+if ! ruby -e 'puts "HURRAY"' 2> /dev/null | grep -q "HURRAY" ; then
     _trace "ruby is not installed, now install ruby."
     sudo brew install ruby
 
