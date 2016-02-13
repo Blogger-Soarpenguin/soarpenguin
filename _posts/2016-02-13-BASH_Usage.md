@@ -67,6 +67,7 @@
      -n STRING: True if the string is not empty (it's length is not zero).
 
 String operators:
+
     1. STRING = STRING: True if the first string is identical to the second.  
     2. STRING != STRING: True if the first string is not identical to the second.  
     3. STRING < STRING: True if the first string sorts before the second.  
@@ -76,6 +77,7 @@ String operators:
     7. ! EXPR: Inverts the result of the expression (logical NOT).  
 
 Numeric operators:
+
     1. INT -eq INT: True if both integers are identical.  
     2. INT -ne INT: True if the integers are not identical.  
     3. INT -lt INT: True if the first integer is less than the second.  
@@ -84,6 +86,7 @@ Numeric operators:
     6. INT -ge INT: True if the first integer is greater than or equal to the second.  
 
 Additional tests supported only by [[:  
+
     1. STRING = (or ==) PATTERN: Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.  
     2. STRING =~ REGEX: True if the string matches the regex pattern.  
     3. ( EXPR ): Parentheses can be used to change the evaluation precedence.  
