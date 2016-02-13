@@ -67,25 +67,25 @@
      -n STRING: True if the string is not empty (it's length is not zero).
 
 String operators:
-     STRING = STRING: True if the first string is identical to the second.  
-     STRING != STRING: True if the first string is not identical to the second.  
-     STRING < STRING: True if the first string sorts before the second.  
-     STRING > STRING: True if the first string sorts after the second.  
-     EXPR -a EXPR: True if both expressions are true (logical AND).  
-     EXPR -o EXPR: True if either expression is true (logical OR).  
-     ! EXPR: Inverts the result of the expression (logical NOT).  
+    1. STRING = STRING: True if the first string is identical to the second.  
+    2. STRING != STRING: True if the first string is not identical to the second.  
+    3. STRING < STRING: True if the first string sorts before the second.  
+    4. STRING > STRING: True if the first string sorts after the second.  
+    5. EXPR -a EXPR: True if both expressions are true (logical AND).  
+    6. EXPR -o EXPR: True if either expression is true (logical OR).  
+    7. ! EXPR: Inverts the result of the expression (logical NOT).  
 
 Numeric operators:
-     INT -eq INT: True if both integers are identical.  
-     INT -ne INT: True if the integers are not identical.  
-     INT -lt INT: True if the first integer is less than the second.  
-     INT -gt INT: True if the first integer is greater than the second.  
-     INT -le INT: True if the first integer is less than or equal to the second.  
-     INT -ge INT: True if the first integer is greater than or equal to the second.  
+    1. INT -eq INT: True if both integers are identical.  
+    2. INT -ne INT: True if the integers are not identical.  
+    3. INT -lt INT: True if the first integer is less than the second.  
+    4. INT -gt INT: True if the first integer is greater than the second.  
+    5. INT -le INT: True if the first integer is less than or equal to the second.  
+    6. INT -ge INT: True if the first integer is greater than or equal to the second.  
 
 Additional tests supported only by [[:  
-     STRING = (or ==) PATTERN: Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.  
-     STRING =~ REGEX: True if the string matches the regex pattern.  
-     ( EXPR ): Parentheses can be used to change the evaluation precedence.  
-     EXPR && EXPR: Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.  
-     EXPR || EXPR: Much like the '-o' operator of test, but does not evaluate the second expression if the first already turns out to be true.  
+    1. STRING = (or ==) PATTERN: Not string comparison like with [ (or test), but pattern matching is performed. True if the string matches the glob pattern.  
+    2. STRING =~ REGEX: True if the string matches the regex pattern.  
+    3. ( EXPR ): Parentheses can be used to change the evaluation precedence.  
+    4. EXPR && EXPR: Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.  
+    5. EXPR || EXPR: Much like the '-o' operator of test, but does not evaluate the second expression if the first already turns out to be true.  
