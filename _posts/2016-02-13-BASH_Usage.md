@@ -92,3 +92,13 @@ Additional tests supported only by [[:
     3. ( EXPR ): Parentheses can be used to change the evaluation precedence.  
     4. EXPR && EXPR: Much like the '-a' operator of test, but does not evaluate the second expression if the first already turns out to be false.  
     5. EXPR || EXPR: Much like the '-o' operator of test, but does not evaluate the second expression if the first already turns out to be true.  
+
+
+###Conditional Loops (while, until and for)
+
+    The two basic kinds of loops are called while and for. The while loop has a variant called until which simply reverses its check; and the for loop can appear in two different forms. Here's a summary:
+
+    1. while command: Repeat so long as command is executed successfully (exit code is 0).
+    2. until command: Repeat so long as command is executed unsuccessfully (exit code is not 0).
+    3. for variable in words: Repeat the loop for each word, setting variable to each word in turn.
+    4. for (( expression; expression; expression )): Starts by evaluating the first arithmetic expression; repeats the loop so long as the second arithmetic expression is successful; and at the end of each loop evaluates the third arithmetic expression.
